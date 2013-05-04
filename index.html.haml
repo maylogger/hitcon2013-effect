@@ -1,0 +1,91 @@
+!!! 5
+%html{ :lang => "en" }
+  %head
+    %meta{ :charset => "utf-8" }
+    %meta{ "http-equiv" => "X-UA-Compatible", :content => "IE=edge,chrome=1" }
+    
+    %title HITCON 2013
+    %link{ :rel => "stylesheet", :href => "stylesheets/normalize.css"}
+    %link{ :rel => "stylesheet", :href => "stylesheets/font.css"}
+    %link{ :rel => "stylesheet", :href => "sass/style.scss"}
+    
+  %body
+    #container
+      .hero
+        #scene
+          #map.obj{ :"data-type" => "Map"}
+          #dot
+          .block#password-database
+            .block-title-wrapper
+              .block-title password database<br />john /etc/shadow
+              .block-subtitle 1433
+              .obj-title-bar.obj{ :"data-type" => "Titlebar"}
+            .obj-pointer.obj{ :"data-type" => "Pointer"}
+            .obj-pointer.obj{ :"data-type" => "Pointer"}
+
+          .block#mobile-network-decoder
+            .block-title-wrapper
+              .block-title mobile network<br />decoder
+              .block-subtitle 3128
+              .obj-title-bar.obj{ :"data-type" => "Titlebar"}
+            .obj-container
+              .obj-decoder.obj{ :"data-type" => "Decoder"}
+              .obj-decoder.obj{ :"data-type" => "Decoder"}
+              .obj-decoder.obj{ :"data-type" => "Decoder"}
+              .obj-decoder.obj{ :"data-type" => "Decoder"}
+              .obj-decoder.obj{ :"data-type" => "Decoder"}
+
+
+          .block#terminals
+            .obj-terminal.obj{ :"data-type" => "Terminal"}
+            .obj-terminal.obj{ :"data-type" => "Terminal"}
+
+          .block#password-cracker
+            .block-title-wrapper
+              .block-title hitcon2013 admin<br />crack password
+              .block-subtitle GPU
+              .obj-title-bar.obj{ :"data-type" => "Titlebar"}
+            .obj-container
+              .obj-password-cracker.obj{ :"data-type" => "PasswordCracker"}
+              .obj-password-cracker.obj{ :"data-type" => "PasswordCracker"}
+              .obj-password-cracker.obj{ :"data-type" => "PasswordCracker"}
+              .obj-password-cracker.obj{ :"data-type" => "PasswordCracker"}
+              .obj-password-cracker.obj{ :"data-type" => "PasswordCracker"}
+              .obj-password-cracker.obj{ :"data-type" => "PasswordCracker"}
+              .obj-password-cracker.obj{ :"data-type" => "PasswordCracker"}
+              .obj-password-cracker.obj{ :"data-type" => "PasswordCracker"}
+
+          .block#scanner
+            .block-title-wrapper
+              .block-title ipv6 scanner
+              .block-subtitle 2^128
+              .obj-title-bar.obj{ :"data-type" => "Titlebar"}
+            .obj-scanner.obj{ :"data-type" => "Scanner"}
+            .obj-scanner.obj{ :"data-type" => "Scanner"}
+
+          .hero-top
+          .hero-bottom
+
+        %a{ :href => "/2013/"}
+          %hgroup
+            %h1.title hitcon 2013
+            %h2.slogan cyberwar, in hack we trust
+      / #test
+      /   .obj-pointer.obj{ :"data-type" => "Pointer"}
+      /   .obj-title-bar.obj{ :"data-type" => "Titlebar"}
+      /   .obj-decoder.obj{ :"data-type" => "Decoder"}
+      /   .obj-terminal.obj{ :"data-type" => "Terminal"}
+      /   .obj-password-cracker.obj{ :"data-type" => "PasswordCracker"}
+      /   .obj-password-cracker.obj{ :"data-type" => "PasswordCracker"}
+      /   .obj-password-cracker.obj{ :"data-type" => "PasswordCracker"}
+      /   .obj-password-cracker.obj{ :"data-type" => "PasswordCracker"}
+      /   .obj-password-cracker.obj{ :"data-type" => "PasswordCracker"}
+      /   .obj-scanner.obj{ :"data-type" => "Scanner"}
+
+
+    %script{ :src => "javascripts/jquery-2.0.0.min.js" }
+    %script{ :src => "javascripts/functions.js" }
+    %script{ :src => "javascripts/hero.js" }
+    %script{ :src => "javascripts/site.js" }
+    %script
+      _site().setup();
