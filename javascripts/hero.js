@@ -6,6 +6,8 @@ window[ns] = function( options ) {
   this.init();
   this.prepare();
   this.resize();
+
+  xx(this.data);
 };
 
 window[ns].prototype = {

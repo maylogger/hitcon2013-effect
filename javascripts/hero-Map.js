@@ -20,8 +20,17 @@ window[ns].prototype = {
     ];
     this.imageLoaded = 0;
 
-    this.k  = 10;
-    this.s  = 2;
+    this.k          = 10;
+    this.s          = 2;
+    this.tw         = {};
+    this.tw.size    = 20;
+    this.tw.radius  = [];
+    this.tw.opacity = [];
+
+    for( var i = 0 ; i < this.tw.size ; i ++ ) {
+      this.tw.radius.push( 0 );
+      this.tw.opacity.push( 0 );
+    }
   },
 
   reset: function() {
@@ -84,12 +93,21 @@ window[ns].prototype = {
   update: function() {
     this.updateLinePosition();
     this.updateData();
-    this.updateTaiwan();
+    this.updateTW();
   },
 
-      updateTaiwan: function() {
-        if( this.linePosition == this.center.y ) return this.tw.radius = 10;
-        this.tw.radius *= 0.99;
+      updateTW: function() {
+        if( this.linePosition == this.center.y ) {
+          for( var i = 0 ; i < this.tw.size ; i ++ ) {
+            this.tw.radius[i]  = 1;
+            this.tw.opacity[i] = 1;
+          }
+          return;
+        }
+        for( var i = 0 ; i < this.tw.size ; i ++ ) {
+          this.tw.radius[i]  *= 1 + 0.01 * i;
+          this.tw.opacity[i] *= 1 - 0.006 * i;
+        }
       },
 
       updateLinePosition: function() {
@@ -144,8 +162,11 @@ window[ns].prototype = {
   },
 
       drawTaiwan: function() {
-        this.ctx.drawCircle( 0, 'rgba( 255, 0, 0, .5 )', this.tw, this.tw.radius, true );
-        this.ctx.drawCircle( 0, 'rgba( 255, 0, 0, 1 )', this.tw, this.tw.radius/2, true );
+        this.ctx.globalCompositeOperation = "lighter";
+        for( var i = 0 ; i < this.tw.size ; i ++ ) {
+          if( i <= 1 ) continue;
+          this.ctx.drawCircle( 0, 'rgba( 255, 0, 0, ' + this.tw.opacity[i] + ' )', this.tw, this.tw.radius[i], true );
+        }
       },
 
       putMapData: function() {
@@ -178,11 +199,8 @@ window[ns].prototype = {
       y: this.height/2
     }
 
-    this.tw = {
-      x: this.center.x + 6 * r,
-      y: this.center.y - 12 * r,
-      radius: 0
-    }
+    this.tw.x = this.center.x + 6 * r;
+    this.tw.y = this.center.y - 12 * r;
 
     this.resetStyle();
 

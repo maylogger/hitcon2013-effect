@@ -143,7 +143,7 @@ part by 19 ---------------------------------------------------------------------
   position: absolute;
   left: 12px;
   top: 16px;
-  font-family: "IdlewildMedium", sans-serif;
+  font-family: 'IdlewildMedium', sans-serif;
 }
 
 /* line 131, ../sass/style.scss */
@@ -154,7 +154,7 @@ part by 19 ---------------------------------------------------------------------
   font-size: 24px;
   color: #d2cd7c;
   line-height: 50px;
-  font-family: "TungstenMedium", sans-serif;
+  font-family: 'TungstenMedium', sans-serif;
 }
 
 /* line 141, ../sass/style.scss */
